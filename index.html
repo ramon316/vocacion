@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Interactiva - Mi Vocación</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            /* Aquí hacemos que tu imagen sea el fondo de toda la página */
+            background-image: url('Vocacion.png'); /* Asegúrate de que la imagen esté en el mismo directorio o ajusta la ruta */
+            background-size: 100% 100%; /* Cubre toda la ventana */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Evita el scroll para que se vea como una app */
+        }
+
+        /* Contenedor invisible para posicionar los inputs */
+        .overlay {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .input-group {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.1); /* Ligeramente visible para saber dónde escribir */
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 8px;
+            font-size: 1.2vw; /* Tamaño de letra relativo al ancho de pantalla */
+            color: #333;
+            outline: none;
+            transition: all 0.3s;
+            width: 20vw;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 2px solid #1f4a7c;
+        }
+
+        /* Posiciones exactas basadas en porcentajes para que no se muevan al cambiar el tamaño de ventana */
+        
+        /* Sección Tu Talento (Arriba) */
+        #talento {
+            top: 15%;
+            left: 39%;
+        }
+        #talento input { gap: 2.5vh; margin-bottom: 2.5vh; }
+
+        /* Sección Tu Pasión (Izquierda) */
+        #pasion {
+            top: 57%;
+            left: 17%;
+        }
+        #pasion input { gap: 2.5vh; margin-bottom: 2.5vh; }
+
+        /* Sección El Servicio (Derecha) */
+        #servicio {
+            top: 57%;
+            left: 60%;
+        }
+        #servicio input { gap: 2.5vh; margin-bottom: 2.5vh; }
+
+        .btn-print {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background-color: #1f4a7c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            .btn-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay">
+        <!-- Entradas para TU TALENTO -->
+        <div id="talento" class="input-group">
+            <input type="text" placeholder="Mi talento 1...">
+            <input type="text" placeholder="Mi talento 2...">
+            <input type="text" placeholder="Mi talento 3...">
+        </div>
+
+        <!-- Entradas para TU PASIÓN -->
+        <div id="pasion" class="input-group">
+            <input type="text" placeholder="Mi pasión 1...">
+            <input type="text" placeholder="Mi pasión 2...">
+            <input type="text" placeholder="Mi pasión 3...">
+        </div>
+
+        <!-- Entradas para EL SERVICIO -->
+        <div id="servicio" class="input-group">
+            <input type="text" placeholder="Servicio 1...">
+            <input type="text" placeholder="Servicio 2...">
+            <input type="text" placeholder="Servicio 3...">
+        </div>
+    </div>
+
+    <button class="btn-print" onclick="window.print()">Guardar Ejercicio</button>
+
+</body>
+</html>
